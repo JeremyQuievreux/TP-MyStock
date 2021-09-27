@@ -3,6 +3,17 @@ import { Link } from "react-router-dom";
 
 function Navbar({isLog, SetIsLog}) {
 
+  let localLog = localStorage.getItem("mail");
+
+  function setLogin(localLog) {
+    if (localLog) {
+      SetIsLog(...isLog, true);
+    } else {
+      SetIsLog(...isLog, false);
+    }
+  }
+  
+
   function showMenu() {
     if (isLog) {
       return(

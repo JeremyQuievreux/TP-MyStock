@@ -9,7 +9,6 @@ import { useState } from 'react';
 
 function App() {
   
-
   const [isLog, SetIsLog] = useState(false);
 
   return (
