@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 function Navbar() {
 
-  const [isLog, SetIsLog] = useState(false);
+  const [isLog, SetIsLog] = useState();
 
   useEffect( ()=> {
     isLoged();
