@@ -1,6 +1,7 @@
 import './Navbar.scss';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import { Fragment } from 'react/cjs/react.production.min';
 
 function Navbar() {
 
@@ -14,18 +15,22 @@ function Navbar() {
     if (isLog) {
       return(
         <div className="menu">
-          <Link to="/"><button>Accueil</button></Link>
-          <Link to="/additem"><button>Ajouter Produits</button></Link>
-          <Link to="/itemslist"><button>Voir Stock</button></Link>
-          <Link to="/"><button onClick={() => logOut()}>Log Out</button></Link>
+          <div className="menu-items">
+            <Link to="/"><button>Accueil</button></Link>
+            <Link to="/additem"><button>Ajouter Produits</button></Link>
+            <Link to="/itemslist"><button>Voir Stock</button></Link>
+            <Link to="/"><button onClick={() => logOut()}>Log Out</button></Link>
+          </div>
         </div>
       )
-    } else {
+    } 
+  }
+
+  function showLoginBtn(){
+    if (!isLog) {
       return(
-        <div className="menu">
-          <button onClick={() => beConnect()}>Se Connecter</button>
-        </div>
-      )      
+        <button className="login-btn" onClick={() => beConnect()}>Se Connecter</button>
+      )
     }
   }
 
@@ -48,11 +53,14 @@ function Navbar() {
   }
 
   return (
+    <Fragment >
     <div className="Navbar">
       <h1>My Stock <span>©</span></h1>
       <p><span className="golden"> Le Café de la Place</span></p>
-      {showMenu()}
+      {showLoginBtn()}
     </div>
+    {showMenu()}
+    </Fragment>
   );
 }
 
