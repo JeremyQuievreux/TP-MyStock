@@ -44,7 +44,7 @@ function Formulaire({ productsList, setProductsList }) {
       return (
         <div className="input-element" id="tohide">
           <label htmlFor="degree">Degré d'alcool : </label>
-          <input type="number" name="degree" id="degree" onInput={(e) => handleDegree(e)} />
+          <span><input type="number" name="degree" id="degree" onInput={(e) => handleDegree(e)} />% Vol</span>
         </div>
       )
     }
@@ -88,23 +88,23 @@ function Formulaire({ productsList, setProductsList }) {
         </div>
         <div className="input-element">
           <label htmlFor="quantity">Quantité :</label>
-          <input type="number" name="quantity" id="quantity" onInput={(e) => handleQuantity(e)}/>
+          <span><input type="number" name="quantity" id="quantity" onInput={(e) => handleQuantity(e)}/>pcs</span>
         </div>
         <div className="input-element">
           <label htmlFor="buy-price">Prix d'achat HT :</label>
-          <input type="number" name="buy-price" id="buy-price" step="0.1" onInput={(e) => handleBuyPrice(e)}/>
+          <span><input type="number" name="buy-price" id="buy-price" step="0.1" onInput={(e) => handleBuyPrice(e)}/>€</span>
         </div>
         <div className="input-element">
           <label htmlFor="sell-price">Prix de vente HT :</label>
-          <input type="number" name="sell-price" id="sell-price" step="0.1" onInput={(e) => handleSellPrice(e)} />
+          <span><input type="number" name="sell-price" id="sell-price" step="0.1" onInput={(e) => handleSellPrice(e)} />€</span>
         </div>
         <div className="input-element">
           <label htmlFor="merge-ht">Marge HT : </label>
-          <input value={mergeHT} type="number" name="merge-ht" id="merge-ht" disabled />
+          <span><input value={mergeHT} type="number" name="merge-ht" id="merge-ht" disabled />€</span>
         </div>
         <div className="input-element">
           <label htmlFor="price-ttc">Prix de vente TTC : </label>
-          <input value={priceTTC} type="number" name="price-ttc" id="price-ttc" disabled />
+          <span><input value={priceTTC} type="number" name="price-ttc" id="price-ttc" disabled />€</span>
         </div>
         <div className="input-element">
           <label htmlFor="type">Type de produit :</label>
