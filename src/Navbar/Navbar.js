@@ -1,19 +1,15 @@
 import './Navbar.scss';
 import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
-function Navbar({isLog, SetIsLog}) {
+function Navbar() {
 
-  let localLog = localStorage.getItem("mail");
+  const [isLog, SetIsLog] = useState(false);
 
-  function setLogin(localLog) {
-    if (localLog) {
-      SetIsLog(...isLog, true);
-    } else {
-      SetIsLog(...isLog, false);
-    }
-  }
+  useEffect( ()=> {
+    isLoged();
+  }, [isLog]);
   
-
   function showMenu() {
     if (isLog) {
       return(
@@ -21,6 +17,7 @@ function Navbar({isLog, SetIsLog}) {
           <Link to="/"><button>Accueil</button></Link>
           <Link to="/additem"><button>Ajouter Produits</button></Link>
           <Link to="/itemslist"><button>Voir Stock</button></Link>
+          <Link to="/"><button onClick={() => logOut()}>Log Out</button></Link>
         </div>
       )
     } else {
@@ -33,10 +30,22 @@ function Navbar({isLog, SetIsLog}) {
   }
 
   function beConnect() {
-    SetIsLog(true)
+    localStorage.setItem("mail", "mon mail");
+    isLoged();
+  }
+  function logOut() {
+    localStorage.removeItem("mail");
+    isLoged();
   }
 
-
+  function isLoged() {
+    let localLog = localStorage.getItem("mail");
+    if (localLog) {
+      SetIsLog(true);
+    } else {
+      SetIsLog(false);
+    }
+  }
 
   return (
     <div className="Navbar">
