@@ -5,12 +5,17 @@ import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import Formulaire from './Formulaire/Formulaire';
 import ItemsList from './ItemsList/ItemsList';
+import { useState } from 'react';
 
 function App() {
+  
+
+  const [isLog, SetIsLog] = useState(false);
+
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar isLog={isLog} SetIsLog={SetIsLog} />
         <Switch>
           <Route exact path="/">
             <Home />
