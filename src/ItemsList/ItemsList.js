@@ -1,9 +1,14 @@
 import './ItemsList.scss';
 
-function ItemsList() {
+function ItemsList({ productsList, setProductsList }) {
   return (
     <div className="ItemsList">
-      Liste de items
+      {productsList.map((product, key)=> {
+        return (
+          <p key={key}>{product.designation}</p>
+          )
+        }   
+      )}
     </div>
   );
 }
